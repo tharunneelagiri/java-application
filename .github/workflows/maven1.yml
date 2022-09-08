@@ -29,7 +29,7 @@ jobs:
       uses: kyberorg/wait_for_harbor@v0.1 
       with:   
        image: 54.152.151.31/praveen
-       tags: v3, latest3
+       imageTag: v3, latest3
        registry: docker.io
        username: ${{ secrets.DOCKER_USERNAME }}
        password: ${{ secrets.DOCKER_PASSWORD }}
