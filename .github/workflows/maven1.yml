@@ -25,8 +25,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     
-    - name: Run Report
-      uses: kyberorg/harbor-scan-report@v0.1
+    - name: Build and PushDocker Image
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        harbor-host: http://54.152.151.31
-        image: http://54.152.151.31/harbor/projects/2/repositories/ubi8:latest
+        image: 54.152.151.31/praveen
+        tags: v1, latest
+        registry: praveen
+        username: ${{ secrets.DOCKER_USERNAME1 }}
+        password: ${{ secrets.DOCKER_PASSWORD1 }}
