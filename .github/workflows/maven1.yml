@@ -26,7 +26,7 @@ jobs:
       run: mvn -B package --file pom.xml
     
     - name: Build and PushDocker Image
-      uses: mr-smithers-excellent/docker-build-push@v5
+      uses: kyberorg/wait_for_harbor@v0.1
       with:
         image: 54.152.151.31/praveen
         tags: v1, latest
