@@ -25,11 +25,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     
-    - name: Build & push Docker image    
-      uses: kyberorg/wait_for_harbor@v0.1 
-      with:   
-       image: 54.152.151.31/praveen
-       imageTag: v3, latest3
-       registry: docker.io
-       username: ${{ secrets.DOCKER_USERNAME }}
-       password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Run Report
+      uses: kyberorg/harbor-scan-report@v0.1
+      with:
+        harbor-host: http://54.152.151.31
+        image: http://54.152.151.31/harbor/projects/2/repositories/ubi8:latest
